@@ -3,7 +3,7 @@ const app = express();
 const PORT = 3000;
 
 const pokemon = require('./models/pokemon.js')
-const Index =require('./views/Index.jsx')
+//const Index =require('./views/Index.jsx')
 
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
