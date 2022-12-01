@@ -17,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/glnewton/pokemon_app/issues"
   },
-  "homepage": "https://github.com/glnewton/pokemon_app#readme"
+  "homepage": "https://github.com/glnewton/pokemon_app#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-react-views": "^0.11.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  }
 }
