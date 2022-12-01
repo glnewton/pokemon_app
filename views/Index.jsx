@@ -4,7 +4,7 @@ const myStyle = {
     color: '#ffffff',
     backgroundColor: '#000000',
 };
-
+//word[0].toUpperCase() + word.slice(1);
 class Index extends React.Component {
   render() {
       const { pokemon } = this.props;
@@ -17,7 +17,7 @@ class Index extends React.Component {
                               <li>
                                   The{' '}
                                   <a href={`/pokemon/${i}`}>
-                                      {pokemon.name}
+                                      {pokemon.name[0].toUpperCase() + pokemon.name.slice(1)}
                                   </a>{' '}
                                   is {pokemon.img} <br></br>
 
