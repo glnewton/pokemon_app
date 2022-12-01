@@ -1,14 +1,19 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
-//const fruits = require('./models/fruits.js');
+
+const pokemon = require('./models/pokemon.js')
+
 
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
 app.get('/', function(req, res){
-    res.send('Welcome to the Pokemon App!');;
-});    
+    res.send('Welcome to the Pokemon App!');
+});
+app.get('/pokemon', function(req, res){
+    res.send(pokemon);
+});     
 
 // app.get('/fruits/:indexOfFruitsArray', function(req, res){
 //     res.render('Show', { //second param must be an object
