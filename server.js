@@ -21,23 +21,11 @@ app.get('/pokemon', function(req, res){
 });   
 
 app.get('/pokemon/:id', function(req, res){
-    res.send(req.params.id);
-//     res.render('Show', { //second param must be an object
-//         pokemon: fruits[req.params.indexOfPokemonArray] //there will be a variable available inside the ejs file called fruit, its value is fruits[req.params.indexOfPokemonArray]
-//     });
-});  
-
-// app.get('/pokemon', function(req, res){
-//     res.render('Index', {pokemon: pokemon});
-// });     
-
-
-
-// app.get('/fruits/:indexOfPokemonArray', function(req, res){
-//     res.render('Show', { //second param must be an object
-//         fruit: fruits[req.params.indexOfPokemonArray] //there will be a variable available inside the ejs file called fruit, its value is fruits[req.params.indexOfPokemonArray]
-//     });
-// });   
+    //res.send(req.params.id);
+    res.render('Show', { 
+        pokemon: pokemon[req.params.id
+    ]});
+});    
 
 app.listen(PORT, () => {
     console.log('listening on port ' + PORT);

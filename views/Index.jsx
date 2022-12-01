@@ -4,7 +4,7 @@ const myStyle = {
     color: '#ffffff',
     backgroundColor: '#000000',
 };
-//word[0].toUpperCase() + word.slice(1);
+
 class Index extends React.Component {
   render() {
       const { pokemon } = this.props;
