@@ -2,7 +2,9 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;const mongoose = require('mongoose');
+const PORT = process.env.PORT || 3000;
+const MONGO_URI = process.env.MONGO_URI
+const mongoose = require('mongoose');
 const Pokemon = require('./models/pokemon');
 
 // Set up Middleware
@@ -14,7 +16,7 @@ app.engine('jsx', require('express-react-views').createEngine());
 
 // Setting up Mongoose
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.connection.once('open', ()=> {
     console.log('Connected to MongoDB')
 })
