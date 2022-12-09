@@ -61,7 +61,40 @@ app.get('/pokemon/new', (req, res) => {
 
 ///***
 
+// Deleting a tweet - DON'T USE THIS, instead use findByIdAndRemove()
+// Tweet.findOneAndRemove({ title: "Deep Thoughts" })
+// // if database transaction succeeds
+// .then((tweet) => {
+//   console.log(tweet)
+// })
+// // if database transaction fails
+// .catch((error) => {
+//   console.log(error)
+// })
+// // close db connection either way
+// .finally(() => {
+//  db.close()
+// })
+
 // Update - Modifying a record
+
+// Updating a tweet
+// Tweet.findOneAndUpdate(
+//     { title: "Vespa" }, // first arg: search criteria
+//     { sponsored: false })// 2nd arg: what we are updating
+//     //{ new: true }) // 3rd arg(optional): to show changes
+//   // if database transaction succeeds
+//   .then((tweet) => {
+//     console.log(tweet)
+//   })
+//   // if database transaction fails
+//   .catch((error) => {
+//     console.log(error)
+//   })
+//   // close db connection either way
+//   .finally(() => {
+//    db.close()
+//   })
 
 ///***
 
