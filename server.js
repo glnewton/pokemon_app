@@ -1,28 +1,37 @@
 
 require('dotenv').config();
+
+// Dependencies & Imports
 const express = require('express');
-const app = express();
-const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGO_URI
 const mongoose = require('mongoose');
 const Pokemon = require('./models/pokemon');
 
-// Set up Middleware
+// Global Configuration Variables 
+const PORT = process.env.PORT || 3000;
+const MONGO_URI = process.env.MONGO_URI
+const db = mongoose.connection;
 
+// Set up Express Middleware
+
+const app = express();
 app.use(express.urlencoded({extended: false}));
-
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
-// Setting up Mongoose
+// Connect to Mongo & Set Up Mongoose
 
+mongoose.connect(MONGO_URI);
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-mongoose.connection.once('open', ()=> {
+db.once('open', ()=> {
     console.log('Connected to MongoDB')
 })
 mongoose.set('strictQuery', true);
 
-const db = mongoose.connection;
+// Connection Error/Success -- Define callback functions for various events
+
+db.on("error", (err) => console.log(err.message + " is mongod not running?"));
+db.on("open", () => console.log("mongo connected: ", MONGO_URI))
+db.on("close", () => console.log("mongo disconnected"))
 
 // Root Route -- WORKS
 
@@ -56,7 +65,7 @@ app.get('/pokemon/new', (req, res) => {
 
 ///***
 
-// Create - send the filled form to db and create a new record
+// Create - send the filled form to db and create a new record -- WORKS
 
 app.post('/pokemon/', (req, res) => { 
     Pokemon.create(req.body, (err, createdPokemon) => {
