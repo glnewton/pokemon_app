@@ -1,0 +1,23 @@
+/* * {
+    margin: 0;
+    padding: 0;
+} */
+
+    #header {
+        width: 100vw;
+        height: 12vh;
+        background: black;
+    }
+
+    #navBar {
+        width: 100vw;
+        height: 6vh;
+        background: rgb(187, 59, 59);
+    }
+
+
+    #footer {
+        width: 100vw;
+        height: 5vh;
+        background-color: blue;
+    }
